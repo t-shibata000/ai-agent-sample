@@ -26,12 +26,12 @@ def call_claude(prompt: str, max_tokens: int = 256) -> str:
     }
 
     client = _bedrock_client()
-    resp = client.invoke_model(
+    response = client.invoke_model(
         modelId=model_id,
         body=json.dumps(body),
         contentType="application/json",
         accept="application/json",
     )
 
-    data = json.loads(resp["body"].read())
+    data = json.loads(response["body"].read())
     return data["content"][0]["text"]
