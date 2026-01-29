@@ -1,9 +1,11 @@
-import os
+from ai_agent_sample.llm.bedrock import call_claude
+from ai_agent_sample.agent.core import Message
 
-from dotenv import load_dotenv
+def main():
 
-load_dotenv()
+    result = call_claude("こんにちは")
+    print("LLM response:")
+    print(result)
 
-print("AWS_ACCESS_KEY_ID set:", bool(os.getenv("AWS_ACCESS_KEY_ID")))
-print("BEDROCK_REGION:", os.getenv("BEDROCK_REGION"))
-print("BEDROCK_MODEL_ID:", os.getenv("BEDROCK_MODEL_ID"))
+if __name__ == "__main__":
+    main()
