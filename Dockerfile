@@ -12,7 +12,7 @@ COPY pyproject.toml poetry.lock ./
 
 RUN pip install --no-cache-dir poetry \
     && poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi --only main
+    && poetry install --no-interaction --no-ansi --only main --no-root
 
 # アプリコード
 COPY src ./src
